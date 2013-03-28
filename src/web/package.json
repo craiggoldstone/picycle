@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "dependencies": {
     "express": "2.5.x",
-    "rpio": "0.0.x",
-    "rpi-gpio": "0.0.x",
-    "gpio": "0.2.x",
     "async": "0.2.x",
     "microtime": "0.3.x"
   },
