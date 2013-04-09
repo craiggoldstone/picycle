@@ -1,0 +1,14 @@
+{
+  "name": "picycle",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "2.5.x",
+    "async": "0.2.x",
+    "microtime": "0.3.x",
+    "bancroft": "0.0.8"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}
