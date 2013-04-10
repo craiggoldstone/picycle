@@ -69,7 +69,8 @@ while True:
       #print "Inch: ", inch
 
       ws.send('2::')
-      ws.send('5:1::{"name":"distance", "args":' + str(cm) + '}')
+      # ws.send('5:1::{"name":"distance", "args":' + str(cm) + '}')
+      ws.send('5:1::{"name":"distance", "args":{"distance":' + str(cm) + ', "time": ' + str(time.time()) + '}}')
       #increase count by 1
       time.sleep(0.1)
 

@@ -1,29 +1,25 @@
 var Bancroft = require('bancroft');
 EventEmitter = require('events').EventEmitter;
+var winston = require('winston');
 
-gps = function(options) {
+var logger = winston.loggers.get('picycle-debug');
+
+gps = function (options) {
   bancroft = new Bancroft();
   bancroft.options = options || {};
+
   
-  bancroft.on('connect', function() {
-    if (bancroft.options.debug) {
-      console.log('connected');
-    }
+  bancroft.on('connect', function () {
+      logger.debug('connected');
   });
-  bancroft.on('location', function(location) {
-    if (bancroft.options.debug) {
-      console.log('got new location: ' + location.latitude + ',' + location.longitude);
-    }
+  bancroft.on('location', function (location) {
+      logger.debug('got new location: ' + location.latitude + ',' + location.longitude);
   });
-  bancroft.on('satellite', function(satellite) {
-    if (bancroft.options.debug) {
-      console.log('got new satellite state');
-    }
+  bancroft.on('satellite', function (satellite) {
+      logger.debug('got new satellite state');
   });
-  bancroft.on('disconnect', function(err) {
-    if (bancroft.options.debug) {
-      console.log('disconnected');
-    }
+  bancroft.on('disconnect', function (err) {
+      logger.debug('disconnected');
   });
 
   return bancroft;
