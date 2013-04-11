@@ -1,8 +1,10 @@
 var Bancroft = require('bancroft');
 EventEmitter = require('events').EventEmitter;
-var winston = require('winston');
+var logging = require('../logging');
 
-var logger = winston.loggers.get('picycle-debug');
+// get the loggers
+var log_config = logging.Config_logging();
+var logger = logging.Logging().get(log_config.DEBUG_LOG_NAME);
 
 gps = function (options) {
   bancroft = new Bancroft();
@@ -24,5 +26,7 @@ gps = function (options) {
 
   return bancroft;
 }
+
+logger.info('GPS set up OK!');
 
 module.exports = gps;

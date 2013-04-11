@@ -3,10 +3,11 @@ var spawn = require('child_process').spawn;
 var sys = require('sys');
 var io = require('socket.io').listen(8000);
 var pythonStream;
-var winston = require('winston');
+var logging = require('../logging');
 
-var logger = winston.loggers.get('picycle-debug');
-
+// get the loggers
+var log_config = logging.Config_logging();
+var logger = logging.Logging().get(log_config.DEBUG_LOG_NAME);
 io.set('log level', 1); // don't show all the debug stuff
 
 // start python stream
@@ -38,5 +39,7 @@ function distance() {
 }
 
 distance.prototype = Object.create(EventEmitter.prototype);
+
+logger.info('Distance set up OK!');
 
 exports.distance = distance;
