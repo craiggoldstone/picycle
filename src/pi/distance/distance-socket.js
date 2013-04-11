@@ -10,17 +10,20 @@ var log_config = logging.Config_logging();
 var logger = logging.Logging().get(log_config.DEBUG_LOG_NAME);
 io.set('log level', 1); // don't show all the debug stuff
 
+var lastread = {};
+
 // start python stream
 var start = function() {
     logger.debug('distance-socket started');
     var self = this;
     pythonStream  = spawn('python', ['distance/distance-socket.py']);
-    logger.debug('distance-socket python child process started, pid:' + pythonStream.pid);
+    logger.info('distance-socket python child process started, pid: ' + pythonStream.pid);
     // listen for the 'distance' message on socket
     io.sockets.on('connection', function (socket) {
         socket.on('distance', function(data) {
             // emit an event with the distance data
             self.emit('tick', data);
+            lastread = data;
         });
     });
 }
@@ -35,6 +38,9 @@ function distance() {
     EventEmitter.call(this);
     this.start = start;
     this.stop = stop;
+    this.lastread = function() {
+        return lastread;
+    }
     return this;
 }
 

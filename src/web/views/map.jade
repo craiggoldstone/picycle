@@ -1,0 +1,25 @@
+doctype 5
+html
+  head
+    title #{title} - picycle
+    link(rel='stylesheet', href='/stylesheets/map.css')
+    script(type='text/javascript')
+      function initialize() {
+        var mapOptions = {
+          zoom: 12,
+          center: new google.maps.LatLng(50.866211367992285, -1.0701370239257812),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var ctaLayer = new google.maps.KmlLayer('/test.kml');
+        ctaLayer.setMap(map);
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCeV_20tuwLAZ1ztpsLNtDYFCb5bS7-YLc&sensor=false&callback=initialize';
+        document.body.appendChild(script);
+      }
+      window.onload = loadScript;
+  body
+    #map-canvas
