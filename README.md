@@ -12,6 +12,10 @@ This is my final year project at University, on BSc Computer Science.
 
 There are two main parts: pi and web
 
+caution
+========
+This software is in development, and probably will not run properly, yet.
+
 pi
 ========
 Yep, you guessed it: this stuff runs on the Raspberry Pi. There are some things in there that are pi-only, such as the packages for gpio.
