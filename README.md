@@ -3,10 +3,20 @@ picycle
 
 Raspberry Pi as data logging device (GPS, vehicle proximity, temperature, webcam) in Node.JS
 
-Project vision: pi, powered by batteries, attached to a bicycle. All these sensors feed in data, which can the be uploaded and analysed. 
-We could figure out the exact roads and pinpoint dangerous spots, based on the proximity of cars to cyclists.
-We could improve road safety by collating all collected data together. We could investigate trends into dangerous roads.
-We could estimate vehicle speed (GPS, proximity sensors, webcam, measuring doppler effect and tyre noise).  We could even do Automatic NumberPlate Recognition.
+Project vision: a pi powered by batteries, collecting useful data on a bicycle. Sensors feed in data, which can be visualises in all sorts of ways. 
+Sensors would be (as a start):
+- GPS
+- Proximity (ultrasonis or infrared)
+- Temperature, light, humidity... anything!
+
+With the data, we could:
+- Pinpoint dangerous spots, based on the proximity of cars to cyclists
+- Find trends in data
+- Make improvements to cycle safety
+
+Maybe we could estimate vehicle speed by calculating doppler effect on tire noise.
+Maybe we could find out what time of day (and why) a part of the road is more dangerous.
+Maybe we could do Automatic NumberPlate Recognition.
 
 This is my final year project at University, on BSc Computer Science.
 
